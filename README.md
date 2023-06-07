@@ -49,7 +49,34 @@ for i in range (M+1):
 print(x)
 print(f)
 ```
- 
+
+```python
+sf=np.sum(f)
+sf
+```
+```python
+p=list()
+for i in range (M+1):
+    p.append(f[i]/sf)
+print(p)
+```
+```python
+mean=np.inner(x,p)
+mean
+```
+```python
+P=list()
+E=list()
+xi=list()
+print("X P(X=x) Obs.Fr Exp.Fr xi")
+print("--------------------------")
+for x in range(M+1):
+    P.append(math.exp(-mean)*mean**x/math.factorial(x))
+    E.append(P[x]*sf)
+    xi.append((f[x]-E[x])**2/E[x])
+    print("%2.2f %2.3f %4.2f %3.2f %3.2f"%(x,P[x],f[x],E[x],xi[x]))
+print("--------------------------")
+```
 
 # Output : 
 
